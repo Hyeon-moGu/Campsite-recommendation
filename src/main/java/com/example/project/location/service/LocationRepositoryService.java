@@ -66,4 +66,9 @@ public class LocationRepositoryService {
         entity.changeLocationAddress(address);
     }
 
+    @Transactional(readOnly = true)
+    public List<Location>  findAll(){
+        return locationRepository.findAll();
+    }
+
 }
