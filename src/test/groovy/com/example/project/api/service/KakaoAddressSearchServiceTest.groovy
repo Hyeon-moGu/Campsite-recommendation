@@ -8,7 +8,7 @@ class KakaoAddressSearchServiceTest extends AbstractIntegrationContainerBaseTest
     @Autowired
     private KakaoAddressSearchService kakaoAddressSearchService
 
-    def "address 파라미터 값이 null이면, requestAddresSearch 메소드는 null을 리턴한다."() {
+    def "address 파라미터 값이 null이면, requestAddressSearch 메소드는 null을 리턴한다."() {
         given:
         def address = null
 

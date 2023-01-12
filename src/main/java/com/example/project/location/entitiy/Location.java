@@ -1,5 +1,6 @@
 package com.example.project.location.entitiy;
 
+import com.example.project.BaseTimeEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,7 +16,7 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Location {
+public class Location extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,4 +26,8 @@ public class Location {
     private String locationAddress;
     private double latitude;
     private double longitude;
+
+    public void changeLocationAddress(String address){
+        this.locationAddress = address;
+    }
 }
