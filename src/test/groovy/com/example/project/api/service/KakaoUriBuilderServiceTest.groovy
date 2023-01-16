@@ -14,7 +14,7 @@ class KakaoUriBuilderServiceTest extends Specification{
 
     def "buildUriByAddress - 한글 파라미터일 경우 정상적인 인코딩"(){
         given:
-        String address = "서울 성북구"
+        String address = "인천 광역시 남동구"
         def charset = StandardCharsets.UTF_8
 
         when:
@@ -22,6 +22,6 @@ class KakaoUriBuilderServiceTest extends Specification{
         def decodeResult = URLDecoder.decode(uri.toString(), charset)
 
         then:
-        decodeResult == "https://dapi.kakao.com/v2/local/search/address.json?query=서울 성북구"
+        decodeResult == "https://dapi.kakao.com/v2/local/search/address.json?query=인천 광역시 남동구"
     }
 }

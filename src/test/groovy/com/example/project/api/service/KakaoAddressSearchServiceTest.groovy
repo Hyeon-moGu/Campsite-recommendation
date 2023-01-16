@@ -31,4 +31,25 @@ class KakaoAddressSearchServiceTest extends AbstractIntegrationContainerBaseTest
         result.metaDto.totalCount > 0
         result.documentList.get(0).addressName != null
     }
+
+    def "정상적인 주소를 입력했을 경우, 정상적으로 위도, 경도로 변환된다."() {
+        given:
+        boolean actualResult = false
+
+        when:
+        def searchResult = kakaoAddressSearchService.requestAddressSearch(inputaddress)
+
+        then:
+        if(searchResult == null) actualResult = false
+        else actualResult = searchResult.getDocumentList().size() > 0
+
+        where:
+        inputaddress                    | expectedResult
+        "인천 광역시 미추홀구 학익동"        | true
+        "인천 광역시 미추홀구 소성로 136"    | true
+        "인천 광역시 학익동 잘못된 주소"     | false
+        "인천 광역시 남동구 만의골로 155"    | true
+        "인천 광역시 남동구 만의골로 155555" | false
+        ""                               | false
+    }
 }
