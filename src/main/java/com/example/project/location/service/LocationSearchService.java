@@ -18,9 +18,6 @@ public class LocationSearchService {
 
     public List<LocationDto> searchLocationDtoList(){
 
-        // redis
-
-        // db
         return locationRepositoryService.findAll()
                 .stream()
                 .map(this::convertToLocationDto)
@@ -30,8 +27,8 @@ public class LocationSearchService {
     private LocationDto convertToLocationDto(Location location) {
         return LocationDto.builder()
                 .id(location.getId())
-                .locationAddress(location.getLocationAddress())
                 .locationName(location.getLocationName())
+                .locationAddress(location.getLocationAddress())
                 .latitude(location.getLatitude())
                 .longitude(location.getLongitude())
                 .build();
