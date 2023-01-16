@@ -1,6 +1,7 @@
 package com.example.project.direction.service
 
 import com.example.project.api.dto.DocumentDto
+import com.example.project.direction.repository.DirectionRepository
 import com.example.project.location.dto.LocationDto
 import com.example.project.location.service.LocationSearchService
 import spock.lang.Specification
@@ -8,8 +9,11 @@ import spock.lang.Specification
 class DirectionServiceTest extends Specification {
 
     private LocationSearchService locationSearchService = Mock()
+    private DirectionRepository directionRepository = Mock()
+    private Base62Service base62Service = Mock()
 
-    private DirectionService directionService = new DirectionService(locationSearchService)
+    private DirectionService directionService = new DirectionService(
+            locationSearchService, directionRepository, base62Service)
 
     private List<LocationDto> locationList
 
