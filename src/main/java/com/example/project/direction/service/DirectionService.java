@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class DirectionService {
 
-    private static final int MAX_SEARCH_COUNT = 3; // 최대 검색 갯수
+    private static final int MAX_SEARCH_COUNT = 5; // 최대 검색 갯수
     private static final double RADIUS_KM = 50.0; // 반경 50km
     private static final String DIRECTION_BASE_URL = "https://map.kakao.com/link/map/";
 
